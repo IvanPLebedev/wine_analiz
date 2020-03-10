@@ -21,3 +21,14 @@ def normalize_by_feature_scaling(dataset: List[List[float]]) -> None:
         minimum = min(column)
         for row_num in range(len(dataset)):
             dataset[row_num][col_num] = (dataset[row_num][col_num] - minimum) / (maximum - minimum)
+
+# добавляет в карту нейронов сети один нейрон(в средние слои)
+def add_one_to_nList(lis: List[int], max: int, min: int) -> List[int]:
+        for n in range(len(lis)):
+            if lis[n] < max:
+                lis[n] += 1
+                return lis
+            else:
+                lis[n] = min
+        lis.append(min)
+        return lis
