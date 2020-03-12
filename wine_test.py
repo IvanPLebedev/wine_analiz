@@ -63,14 +63,12 @@ def test(network_lists: List[List[int]]) -> List[float]:
 if __name__ == "__main__":
     network_lists: List[List[int]] = []
     test_list: List[int] = [5]
-    for _ in range(10):
-        test_list = add_one_to_nList(test_list, 15, 5)
-        test_list2 = list(test_list)
-        test_list2.append(6)
-        for n in range(8, 12):
-            network_list = list(test_list2)
-            network_list.insert(0, n)
-            network_lists.append(network_list)
+    for _ in range(300):
+        test_list = add_one_to_nList(test_list, 20, 5)
+        network_list = list(test_list)
+        network_list.append(6)
+        network_list.insert(0, 11)
+        network_lists.append(network_list)
         
     networks_res: List[float] = []
     x = 10 # количество тестов
@@ -86,6 +84,6 @@ if __name__ == "__main__":
     m = networks_res.index(max(networks_res))
 
     print(f'лучший результат всего теста:{network_lists[m]} со средней вероятностью {networks_res[m]/x}')
-    # в результате получил лучший результат всего теста:[11, 6, 6] 
+    # в результате получил лучший результат всего теста:[11, 7, 6] 
     # со средней вероятностью 0.6260000000000001
     
